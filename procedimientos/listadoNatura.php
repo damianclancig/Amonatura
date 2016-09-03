@@ -1,10 +1,10 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		
-		$idTipo = $_POST[tipo];
-		$codigo = $_POST[codigo];
+		$idTipo = $_POST['tipo'];
+		$codigo = $_POST['codigo'];
 		
 		$sql = new SQLclass();
 		$sql2 = new SQLclass();

@@ -1,4 +1,4 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");

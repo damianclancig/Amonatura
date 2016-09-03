@@ -1,11 +1,11 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		
-		$idTipo = $_POST[idTipo];
-		$combo = $_POST[combo];
-		$padre = $_POST[padre];
+		$idTipo = $_POST['idTipo'];
+		$combo = $_POST['combo'];
+		$padre = $_POST['padre'];
 		
 		$sql = new SQLclass();
 		
@@ -25,9 +25,9 @@
 		$json .= '"idCombo":"'.$combo.'",';
 		$json .= '"lista":[ ';
 		while($row = $sql->obtenerFila()){
-			$json .= '{"idCombo":"'.$row[idCombo].'", "nombre":"'.$row[nombre].'"},';
+			$json .= '{"idCombo":"'.$row['idCombo'].'", "nombre":"'.$row['nombre'].'"},';
 		}
-		$json = substr($json, 0, $json.length - 1);
+		$json = substr($json, 0, strlen($json) - 1);
 		$json .= ']}';
 	}
 	catch(Exception $e){

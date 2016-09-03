@@ -1,4 +1,4 @@
-<?
+<?php
 	function formatString($ruta){
 		$ruta = str_replace("\\", "\\\\", $ruta);
 		return $ruta;

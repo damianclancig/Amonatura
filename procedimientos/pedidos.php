@@ -1,16 +1,16 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		require("../clases/producto.php");
 		
-		$accion = $_POST[accion];
-		$idTipo = $_POST[tipo];
-		$idEtapa = $_POST[etapa];
-		$idPedido = $_POST[pedido];
-		$idPedProd = $_POST[codigo];
-		$comentario = $_POST[comentario];
-		$valor = $_POST[valor];
+		$accion = isset($_POST['accion']) ? $_POST['accion'] : '';
+		$idTipo = isset($_POST['tipo']) ? $_POST['tipo'] : '';
+		$idEtapa = isset($_POST['etapa']) ? $_POST['etapa'] : '';
+		$idPedido = isset($_POST['pedido']) ? $_POST['pedido'] : '';
+		$idPedProd = isset($_POST['codigo']) ? $_POST['codigo'] : '';
+		$comentario = isset($_POST['comentario']) ? $_POST['comentario'] : '';
+		$valor = isset($_POST['valor']) ? $_POST['valor'] : '';
 		
 		if($accion == "crear"){
 			$json = crear($idTipo, $idEtapa, $idPedido);
@@ -86,7 +86,7 @@
 				}
 				else if($cant > 0){
 					$row = $sql->obtenerFila();
-					$idPedido = $row[idCombo];
+					$idPedido = $row['idCombo'];
 				}
 			}
 		}
@@ -98,7 +98,7 @@
 			}
 			$row = $sql->obtenerFila();
 			
-			$sql->crearPedidoProducto($idPedido, $row[idProducto], $producto->getPrecio(), $producto->getPrecioFinal(), $producto->getInfoExtra(), $producto->getCliente(), $producto->getComentario());
+			$sql->crearPedidoProducto($idPedido, $row['idProducto'], $producto->getPrecio(), $producto->getPrecioFinal(), $producto->getInfoExtra(), $producto->getCliente(), $producto->getComentario());
 			if(!$sql->getResult()){
 				throw new Exception($sql->getError());
 			}
@@ -119,10 +119,12 @@
 		}
 		$json = '{"estado":"OK",';
 		$json .= '"menues":[';
-		while($reg = $sql->obtenerFila()){
-			$json .= '{"idCiclo":'.$reg[idEtapa].',"nomCiclo":"'.$reg[nomEtapa].'","idPedido":'.$reg[idPedido].',"nroPedido":"'.$reg[nroPedido].'"},';
+		if($sql->obtenerCantidad() > 0){
+			while($reg = $sql->obtenerFila()){
+				$json .= '{"idCiclo":'.$reg['idEtapa'].',"nomCiclo":"'.$reg['nomEtapa'].'","idPedido":'.$reg['idPedido'].',"nroPedido":"'.$reg['nroPedido'].'"},';
+			}
+			$json = substr($json, 0, strlen($json) - 1);
 		}
-		$json = substr($json, 0, $json.length - 1);
 		$json .= ']}';
 		return $json;
 	}
@@ -150,7 +152,7 @@
 			throw new Exception($sql->getError());
 		}
 		$row = $sql->obtenerFila();
-		$idPed = $row[idPedido];
+		$idPed = $row['idPedido'];
 		
 		$sql->totalPagado($idPed);
 		if(!$sql->getResult()){
@@ -160,7 +162,7 @@
 		
 		$total = 0;
 		if($sql->obtenerCantidad() > 0){
-			$total = $row[total];
+			$total = $row['total'];
 		}
 		$json = '{"estado":"OK", ';
 		$json .= '"total":"'.$total.'"}';

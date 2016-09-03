@@ -1,12 +1,12 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		require("../clases/producto.php");
 		
-		$accion = $_POST[accion];
-		$codigo = $_POST[codigo];
-		$nombre = $_POST[nombre];
+		$accion = isset($_POST['accion']) ? $_POST['accion'] : '';
+		$codigo = isset($_POST['codigo']) ? $_POST['codigo'] : '';
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 		
 		if($accion == "crear"){
 			$json = crear($nombre);
@@ -49,11 +49,11 @@
 		$jsonLis = '"datos":[ ';
 		while($reg = $sql->obtenerFila()){
 			$jsonLis .= '[';
-			$jsonLis .= '{"valor":"'.$reg[idCliente].'", "alineacion":"center", "editable":false},';
-			$jsonLis .= '{"valor":"'.$reg[nomCliente].'", "alineacion":"left", "editable":true, "id":"'.$reg[idCliente].'"}';
+			$jsonLis .= '{"valor":"'.$reg['idCliente'].'", "alineacion":"center", "editable":false},';
+			$jsonLis .= '{"valor":"'.$reg['nomCliente'].'", "alineacion":"left", "editable":true, "id":"'.$reg['idCliente'].'"}';
 			$jsonLis .= '],';
 		}
-		$jsonLis = substr($jsonLis, 0, $jsonLis.length - 1);
+		$jsonLis = substr($jsonLis, 0, strlen($jsonLis) - 1);
 		$jsonLis .= ']';
 		$json .= $jsonLis;
 		$json .= "}";

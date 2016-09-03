@@ -1,4 +1,4 @@
-<?
+<?php
 	class SQLclass{
 		private $enlace;
 		private $base;
@@ -7,9 +7,9 @@
 		private $error;
 		
 		function __construct(){
-			$this->enlace = mysql_connect("localhost", "administrador", "techadministrator");
+			$this->enlace = mysqli_connect("localhost", "administrador", "techadministrator");
 			$this->base = "amonatura";
-			mysql_select_db($this->base, $this->enlace);
+			mysqli_select_db($this->enlace, $this->base);
 		}
 		
 		function cargarMenues(){
@@ -315,7 +315,7 @@
 		}
 		
 		function ejecutar(){
-			$this->result = mysql_query($this->query, $this->enlace);
+			$this->result = mysqli_query($this->enlace, $this->query);
 			if(mysql_errno()){
 				$this->error = mysql_error();
 				$this->result = false;
@@ -323,15 +323,15 @@
 		}
 		
 		function obtenerCantidad(){
-			return mysql_num_rows($this->result);
+			return mysqli_num_rows($this->result);
 		}
 		
 		function obtenerUltimoId(){
-			return mysql_insert_id($this->enlace);
+			return mysqli_insert_id($this->enlace);
 		}
 		
 		function obtenerFila(){
-			return mysql_fetch_array($this->result);
+			return mysqli_fetch_assoc($this->result);
 		}
 		
 		function getError(){

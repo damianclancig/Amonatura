@@ -12,13 +12,13 @@ $(document).ready(function(){
 	/****/
 	
 	$("#txtFecInicio").datepicker({ dateFormat: 'yy-mm-dd', showButtonPanel: true, closeText: 'Cerrar', currentText: 'Ahora', prevText: 'Anterior', nextText: 'Siguiente', showOn: 'button', buttonImage: 'imagenes/calendar.gif', buttonImageOnly: true });
-	$("#txtFecInicio").datepicker('option', 'dayNames', ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] );
-	$("#txtFecInicio").datepicker('option', 'dayNamesMin', ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'] );
+	$("#txtFecInicio").datepicker('option', 'dayNames', ['Domingo', 'Lunes', 'Martes', 'Miï¿½rcoles', 'Jueves', 'Viernes', 'Sï¿½bado'] );
+	$("#txtFecInicio").datepicker('option', 'dayNamesMin', ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sï¿½'] );
 	$("#txtFecInicio").datepicker('option', 'monthNames', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'] );
 	
 	$("#txtFecFinalizacion").datepicker({ dateFormat: 'yy-mm-dd', showButtonPanel: true, closeText: 'Cerrar', currentText: 'Ahora', prevText: 'Anterior', nextText: 'Siguiente', showOn: 'button', buttonImage: 'imagenes/calendar.gif', buttonImageOnly: true });
-	$("#txtFecFinalizacion").datepicker('option', 'dayNames', ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] );
-	$("#txtFecFinalizacion").datepicker('option', 'dayNamesMin', ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'] );
+	$("#txtFecFinalizacion").datepicker('option', 'dayNames', ['Domingo', 'Lunes', 'Martes', 'Miï¿½rcoles', 'Jueves', 'Viernes', 'Sï¿½bado'] );
+	$("#txtFecFinalizacion").datepicker('option', 'dayNamesMin', ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sï¿½'] );
 	$("#txtFecFinalizacion").datepicker('option', 'monthNames', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'] );
 	
 	for(var i = 0; i <= 100; i++){
@@ -157,7 +157,7 @@ $(document).ready(function(){
 	
 	$("#btnAgregarProducto").click(agregarProducto);
 	$("#btnCancelarPedido2").click(function(){
-		if(confirm("Si cancela, pierde toda la carga de productos de este pedido\n¿Estás seguro de continuar?")){
+		if(confirm("Si cancela, pierde toda la carga de productos de este pedido\nï¿½Estï¿½s seguro de continuar?")){
 			cancelarPedido();
 		}
 	});
@@ -188,13 +188,13 @@ function cargarMenues(){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarCargarMenues,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("cargarMenues: Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarCargarMenues(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		var cont = 0;
@@ -312,13 +312,13 @@ function cargarPedidos(id){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarPedidos,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("cargarPedidos: Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarPedidos(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		if(resp.datos.length == 0){
@@ -368,7 +368,7 @@ function mostrarCuadroInfo(resp){
 	tdSep2.appendTo(trFila1);
 	tdCol3.appendTo(trFila1);
 	
-	var tdCol1 = $("<td></td>").addClass("tdCampos").html("<b>Pedido:</b> Nº " + resp.nroPedido);
+	var tdCol1 = $("<td></td>").addClass("tdCampos").html("<b>Pedido:</b> Nï¿½ " + resp.nroPedido);
 	var tdSep1 = $("<td></td>").addClass("tdSep");
 	var tdCol2 = $("<td></td>").addClass("tdCampos").html(resp.fecComienzo);
 	var tdSep2 = $("<td></td>").addClass("tdSep");
@@ -438,13 +438,13 @@ function realizarPedido(){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarRealizarPedido,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("realizarPedido: Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarRealizarPedido(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		mostrarFondoTrans($("#realizarPedido").css("z-index"));
@@ -482,16 +482,16 @@ function modificarPedido(id, valor){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarModificarPedido,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("modificarPedido: Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarModificarPedido(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
-		alertar("El pedido se modificó correctamente");
+		alertar("El pedido se modificï¿½ correctamente");
 		$("#infoGeneral").show();
 		configurarLista("#infoGeneral");
 		$("#infoGeneral").css("left",$("#divListadoPedido .borCentro").width() + 30);
@@ -516,23 +516,23 @@ function checkPagado(obj){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarCheckPagado,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("modificarPedido:Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarCheckPagado(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
-		alertar("El pedido se modificó correctamente");
+		alertar("El pedido se modificï¿½ correctamente");
 		$("#td_totPagado").html("$ " + resp.total);
 	}
 	g_cantProc -= 1;
 }
 
 function eliminarPedido(id){
-	if(confirm("¿Está seguro que desea eliminar el pedido?")){
+	if(confirm("ï¿½Estï¿½ seguro que desea eliminar el pedido?")){
 		$.ajax({
 			url: "procedimientos/pedidos.php",
 			type: "POST",
@@ -543,17 +543,17 @@ function eliminarPedido(id){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarEliminarPedido,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("eliminarPedido: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarEliminarPedido(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
-		alertar("El pedido se eliminó correctamente");
+		alertar("El pedido se eliminï¿½ correctamente");
 		if(g_tipo == "N"){
 			cargarPedidos(g_pedido_sel);
 		}
@@ -576,20 +576,20 @@ function crearEtapa(){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarEtapaNueva,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("crearEtapa: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarEtapaNueva(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "ERREXIST"){
 		alert("El nombre ya existe");
 	}
 	else if(resp.estado == "OK"){
-		alertar("Se creó correctamente.");
+		alertar("Se creï¿½ correctamente.");
 		if(g_tipo == "N"){
 			$("#btnCancelarEtapa").click();
 		}
@@ -612,14 +612,14 @@ function buscarProducto(){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarProducto,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("buscarProducto: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarProducto(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		$("#desProducto").html(resp.descripcion);
@@ -651,14 +651,14 @@ function crearProducto(){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarProdNuevo,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("crearProducto: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarProdNuevo(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		alertar("El Producto se ha creado correctamente.");
@@ -682,14 +682,14 @@ function crearCliente(){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarCliente,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("crearCliente: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarCliente(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		alertar("El Cliente se ha creado correctamente.");
@@ -717,14 +717,14 @@ function agregarProducto(){
 			dataType: "json",
 			beforeSend: notificacionProceso,
 			success: procesarAgregarListaProd,
-			error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+			error: function() { alert("agregarProducto: Se ha producido un error.\nConsulte con el administrador."); }
 		});
 	}
 }
 
 function procesarAgregarListaProd(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		var infoExtra;
@@ -763,13 +763,13 @@ function crearPedido(){
 		dataType: "json",
 		beforeSend: notificacionProceso,
 		success: procesarCrearPedido,
-		error: function() { alert("Se ha producido un error.\nConsulte con el administrador."); }
+		error: function() { alert("crearPedido: Se ha producido un error.\nConsulte con el administrador."); }
 	});
 }
 
 function procesarCrearPedido(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 		cancelarPedido();
 	}
 	else if(resp.estado == "OK"){
@@ -801,7 +801,7 @@ function cancelarPedido(){
 
 function procesarCancelarPedido(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		$("#divAgregarProducto").hide();
@@ -834,7 +834,7 @@ function cargarListaProductos(tipo){
 
 function procesarListaProductos(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		if(resp.datos.length == 0){
@@ -856,7 +856,7 @@ function procesarListaProductos(resp){
 function modificarProducto(id, valor){
 	var data = null;
 	if(valor == null || valor == ""){
-		if(!confirm("Vas a eliminar este producto, ¿Estás seguro?")){
+		if(!confirm("Vas a eliminar este producto, ï¿½Estï¿½s seguro?")){
 			cargarListaProductos();
 			return false;
 		}
@@ -888,14 +888,14 @@ function modificarProducto(id, valor){
 
 function procesarModificarProducto(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
-		alertar("El producto se modificó correctamente");
+		alertar("El producto se modificï¿½ correctamente");
 	}
 	else if(resp.estado == "OKDel"){
 		cargarListaProductos($("#cmbTipo").val());
-		alertar("El producto se eliminó correctamente");
+		alertar("El producto se eliminï¿½ correctamente");
 	}
 	g_cantProc -= 1;
 }
@@ -922,7 +922,7 @@ function cargarListaClientes(){
 
 function procesarListaClientes(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		if(resp.datos.length == 0){
@@ -969,14 +969,14 @@ function modificarCliente(id, valor){
 
 function procesarModificarCliente(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
-		alertar("El cliente se modificó correctamente");
+		alertar("El cliente se modificï¿½ correctamente");
 	}
 	else if(resp.estado == "OKDel"){
 		cargarListaClientes();
-		alertar("El cliente se eliminó correctamente");
+		alertar("El cliente se eliminï¿½ correctamente");
 	}
 	g_cantProc -= 1;
 }
@@ -1003,7 +1003,7 @@ function cargarListaMisProductos(){
 
 function procesarListaMisProductos(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if(resp.estado == "OK"){
 		if(resp.datos.length == 0){
@@ -1051,10 +1051,10 @@ function agregarMiProducto(){
 
 function procesarAgregarMiProd(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if (resp.estado == "OK"){
-		alertar("El producto se creó correctamente");
+		alertar("El producto se creï¿½ correctamente");
 		$("#btnCancelarMiProducto").click();
 		cargarListaMisProductos();
 	}
@@ -1078,10 +1078,10 @@ function eliminarMiProducto(id){
 
 function procesarEliminarMiProd(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if (resp.estado == "OK"){
-		alertar("El producto se eliminó correctamente");
+		alertar("El producto se eliminï¿½ correctamente");
 		cargarListaMisProductos();
 	}
 	g_cantProc -= 1;
@@ -1111,7 +1111,7 @@ function levantarProducto(id){
 
 function procesarLeventarProducto(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if (resp.estado == "OK"){
 		$("#txtCodigo").val(resp.pedido.codigo);
@@ -1152,10 +1152,10 @@ function modifProducto(){
 
 function procesarModifProducto(resp){
 	if(resp.estado == "ERR"){
-		alert("Ocurrió un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
+		alert("Ocurriï¿½ un error al consultar la Base de Datos.\nConsutle con el administrador.\n\nMensaje Error:\n" + resp.msjErr);
 	}
 	else if (resp.estado == "OK"){
-		alertar("El producto se modificó correctamente");
+		alertar("El producto se modificï¿½ correctamente");
 		cargarPedidos(g_pedido_sel);
 		$("#btnCancelarModif").click();
 	}

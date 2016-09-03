@@ -1,4 +1,4 @@
-<?
+<?php
 	class producto{
 		private $idTipo;
 		private $codigo;

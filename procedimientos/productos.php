@@ -1,20 +1,20 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		require("../clases/producto.php");
 		
-		$accion = $_POST[accion];
-		$codigo = $_POST[codigo];
-		$idTipo = $_POST[tipo];
-		$descripcion = $_POST[descripcion];
-		$precio = $_POST[precio];
-		$precioFinal = $_POST[precioFinal];
-		$puntos = $_POST[puntos];
-		$pagina = $_POST[pagina];
-		$cliente = $_POST[cliente];
-		$comentario = $_POST[comentario];
-		$id = $_POST[id];
+		$accion = isset($_POST['accion']) ? $_POST['accion'] : '';
+		$codigo = isset($_POST['codigo']) ? $_POST['codigo'] : '';
+		$idTipo = isset($_POST['tipo']) ? $_POST['tipo'] : '';
+		$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+		$precio = isset($_POST['precio']) ? $_POST['precio'] : '';
+		$precioFinal = isset($_POST['precioFinal']) ? $_POST['precioFinal'] : '';
+		$puntos = isset($_POST['puntos']) ? $_POST['puntos'] : '';
+		$pagina = isset($_POST['pagina']) ? $_POST['pagina'] : '';
+		$cliente = isset($_POST['cliente']) ? $_POST['cliente'] : '';
+		$comentario = isset($_POST['comentario']) ? $_POST['comentario'] : '';
+		$id = isset($_POST['id']) ? $_POST['id'] : '';
 		
 		if($accion == "buscar"){
 			$json = buscar($idTipo, $codigo);
@@ -71,7 +71,7 @@
 		else{
 			$row = $sql->obtenerFila();
 			$json = '{"estado":"OK",';
-			$json .= '"descripcion":"'.$row[desProducto].'"}';
+			$json .= '"descripcion":"'.$row['desProducto'].'"}';
 		}
 		return $json;
 	}
@@ -88,12 +88,12 @@
 		$jsonLis = '"datos":[ ';
 		while($reg = $sql->obtenerFila()){
 			$jsonLis .= '[';
-			$jsonLis .= '{"valor":"'.$reg[codProducto].'", "alineacion":"center", "editable":false},';
-			$jsonLis .= '{"valor":"'.$reg[desProducto].'", "alineacion":"left", "editable":true, "id":"'.$reg[idProducto].'"},';
-			$jsonLis .= '{"valor":"'.estado($reg[indEstado]).'", "alineacion":"center", "editable":false}';
+			$jsonLis .= '{"valor":"'.$reg['codProducto'].'", "alineacion":"center", "editable":false},';
+			$jsonLis .= '{"valor":"'.$reg['desProducto'].'", "alineacion":"left", "editable":true, "id":"'.$reg['idProducto'].'"},';
+			$jsonLis .= '{"valor":"'.estado($reg['indEstado']).'", "alineacion":"center", "editable":false}';
 			$jsonLis .= '],';
 		}
-		$jsonLis = substr($jsonLis, 0, $jsonLis.length - 1);
+		$jsonLis = substr($jsonLis, 0, strlen($jsonLis) - 1);
 		$jsonLis .= ']';
 		$json .= $jsonLis;
 		$json .= "}";
@@ -183,9 +183,9 @@
 		$jsonLis = '"datos":[ ';
 		while($reg = $sql->obtenerFila()){
 			$jsonLis .= '[';
-			$jsonLis .= '{"valor":"'.$reg[idProducto].'", "alineacion":"center", "editable":false},';
-			$jsonLis .= '{"valor":"'.$reg[desProducto].'", "alineacion":"left", "editable":true, "id":"'.$reg[idProducto].'"},';
-			$jsonLis .= '{"valor":"$ '.$reg[precio].'", "alineacion":"right", "editable":false}';
+			$jsonLis .= '{"valor":"'.$reg['idProducto'].'", "alineacion":"center", "editable":false},';
+			$jsonLis .= '{"valor":"'.$reg['desProducto'].'", "alineacion":"left", "editable":true, "id":"'.$reg['idProducto'].'"},';
+			$jsonLis .= '{"valor":"$ '.$reg['precio'].'", "alineacion":"right", "editable":false}';
 			$jsonLis .= '],';
 		}
 		$jsonLis = substr($jsonLis, 0, $jsonLis.length - 1);
@@ -226,9 +226,9 @@
 		$reg = $sql->obtenerFila();
 		
 		$jsonLis .= '[';
-		$jsonLis .= '{"valor":"'.$reg[codProducto].'", "alineacion":"center", "editable":false},';
-		$jsonLis .= '{"valor":"'.$reg[desProducto].'", "alineacion":"left", "editable":true, "id":"'.$reg[idProducto].'"},';
-		$jsonLis .= '{"valor":"'.estado($reg[indEstado]).'", "alineacion":"center", "editable":false}';
+		$jsonLis .= '{"valor":"'.$reg['codProducto'].'", "alineacion":"center", "editable":false},';
+		$jsonLis .= '{"valor":"'.$reg['desProducto'].'", "alineacion":"left", "editable":true, "id":"'.$reg[idProducto].'"},';
+		$jsonLis .= '{"valor":"'.estado($reg['indEstado']).'", "alineacion":"center", "editable":false}';
 		$jsonLis .= '],';
 
 		$json .= $jsonLis;
@@ -245,7 +245,7 @@
 		}
 		$row = $sql->obtenerFila();
 		
-		$sql->actualizarProducto($id, $row[idProducto], $precio, $precioFinal, $puntos, $idCliente, $comentario);
+		$sql->actualizarProducto($id, $row['idProducto'], $precio, $precioFinal, $puntos, $idCliente, $comentario);
 		if(!$sql->getResult()){
 			throw new Exception($sql->getError());
 		}

@@ -1,12 +1,12 @@
-<?
+<?php
 	try{
 		require("funciones.php");
 		require("../clases/class.sql.php");
 		
-		$idTipo = $_POST[idTipo];
-		$nombre = $_POST[nombre];
-		$fecInicio = $_POST[fecInicio];
-		$fecFinalizacion = $_POST[fecFinalizacion];
+		$idTipo = $_POST['idTipo'];
+		$nombre = $_POST['nombre'];
+		$fecInicio = $_POST['fecInicio'];
+		$fecFinalizacion = $_POST['fecFinalizacion'];
 		
 		$sql = new SQLclass();
 		
