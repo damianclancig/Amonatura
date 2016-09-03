@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+
+BODY{
+	margin: 0px;
+	font-family: Segoe UI, Tahoma, Verdana, Arial;
+	font-size: 12px;
+	background: url(../imagenes/fondoDeg.png);
+	overflow: hidden;
+}
+
+.fondo{
+	position:absolute;
+	background: url(../imagenes/imagen.png) no-repeat;
+	bottom:35px;
+	right:0px;
+	width:490px;
+	height:332px;
+	z-index:-1;
+}
+
+HTML,BODY{
+	height: 100%;
+}
+
+INPUT,SELECT{
+	font-family: Segoe UI, Tahoma, Verdana, Arial;
+	font-size: 12px;
+}
+
+/**** Barra Menu y Herramientas****/
+.barraMenu{
+	background:url(../imagenes/barraMenu.png);
+	height:30px;
+	padding-left:10px;
+}
+
+.menus{
+	float:left;
+	height:23px;
+	margin-left:2px;
+	cursor:pointer;
+}
+
+.menus DIV{
+	float:left;
+}
+
+.divMenus, .divMenusCic, .divMenusAct, .divMenusAnt, .divMenusPed{
+	position:absolute;
+	display:none;
+}
+
+.divMenus, .divMenusAct, .divMenusAnt, .divMenusPed{
+	border-left:solid;
+	border-left-color:#D19405;
+	border-left-width:1px;
+}
+
+#divCiclos{
+	height:80px;
+	overflow:hidden;
+}
+
+.menu{
+	cursor:pointer;
+	background:url(../imagenes/barraMenu.png);
+	height:20px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:5px;
+	white-space:nowrap;
+}
+
+.texto{
+	padding-top:7px;
+	font-weight:bold;
+}
+
+.menuIzq{
+	background-image:url(../imagenes/barraMenuIzq.png);
+	width:2px;
+	height:30px;
+}
+
+.menuMed{
+	background-image:url(../imagenes/barraMenuMed.png);
+	height:30px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.menuDer{
+	background-image:url(../imagenes/barraMenuDer.png);
+	width:2px;
+	height:30px;
+}
+.menuIzqInf{
+	background-image:url(../imagenes/barraMenuIzqInf.png);
+	width:2px;
+	height:30px;
+}
+
+.menuMedInf{
+	background-image:url(../imagenes/barraMenuMedInf.png);
+	height:30px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.menuDerInf{
+	background-image:url(../imagenes/barraMenuDerInf.png);
+	width:2px;
+	height:30px;
+}
+
+.msjNotificacion{
+	display:none;
+	float:right;
+	padding-left:3px;
+	padding-right:3px;
+	margin-top:7px;
+	margin-right:3px;
+	color:#00F;
+	background-color:#0F6;
+	z-index:10000;
+}
+/*********/
+
+/**** Contenedor ****/
+.contenedor{
+	overflow:auto;
+	padding:5px;
+}
+
+/**** PIE ****/
+.pie{
+	position: absolute;
+	background: url(../imagenes/pie.png) repeat-x;
+	bottom: 0px;
+	height: 35px;
+}
+
+.pie .pie_izq{
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.pieTextoIzq{
+	background: url(../imagenes/pieTextoIzq.png) !important;
+	background: none;
+	filter:none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/pieTextoIzq.png',sizingMethod='scale');
+	width: 503px;
+	height: 23px;
+}
+
+.pie .pie_der{
+	float:right;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.pieTextoDer{
+	background: url(../imagenes/pieTextoDer.png) !important;
+	background: none;
+	filter:none !important;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/pieTextoDer.png',sizingMethod='scale');
+	width: 269px;
+	height: 20px;
+}
+/**** Fin PIE ****/

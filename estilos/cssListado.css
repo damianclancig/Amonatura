@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+
+/**** Bordes de Listados ****/
+#pedidos{
+	display:none;
+}
+
+.borSupIzq{
+	float:left;
+ 	width:10px;
+ 	height:10px;
+	background: url(../imagenes/borSupIzq.png) repeat-y !important;
+	background: none;
+	filter:none !important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/borSupIzq.png',sizingMethod='scale');
+}
+
+.borSup{
+	float:left;
+	background-image:url(../imagenes/borSup.png);
+ 	height:10px;
+ }
+
+.borSupDer{
+	float:left;
+ 	width:10px;
+ 	height:10px;
+	background: url(../imagenes/borSupDer.png) repeat-y !important;
+	background: none;
+	filter:none !important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/borSupDer.png',sizingMethod='scale');
+}
+
+.borIzq{
+	clear:left;
+	float:left;
+	border:0px;
+	background-image:url(../imagenes/borIzq.png);
+ 	width:10px;
+}
+
+.borCentro{
+	float:left;
+	background-color:#FFF;
+}
+
+.borDer{
+	float:left;
+	background-image:url(../imagenes/borDer.png);
+ 	width:10px;
+}
+
+.borInfIzq{
+	float:left;
+	clear:left;
+ 	width:10px;
+ 	height:10px;
+	background: url(../imagenes/borInfIzq.png) repeat-y !important;
+	background: none;
+	filter:none !important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/borInfIzq.png',sizingMethod='scale');
+}
+
+.borInf{
+	float:left;
+	background-image:url(../imagenes/borInf.png);
+ 	height:10px;
+}
+
+.borInfDer{
+	float:left;
+ 	width:10px;
+ 	height:10px;
+	background: url(../imagenes/borInfDer.png) repeat-y !important;
+	background: none;
+	filter:none !important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../imagenes/borInfDer.png',sizingMethod='scale');
+}
+/*******/
+
+/**** Listados ****/
+
+.trCabecera{
+	/*background-color:#939; ROSA*/
+	background-color:#D19405;
+	color:#FFF;
+	font-weight:bold;
+}
+
+.trListado{
+	background:#FFF;
+}
+
+.trListadoRes{
+	/*background:#FCF; ROSA*/
+	background:#FEEFBC;
+}
+
+.trCatListado{
+	background:#FFE182;
+	font-weight:bold;
+}
+
+.trListado:HOVER, .trListadoRes:HOVER{
+	/*background:#F6F; ROSA*/
+	background:#FDD44B;
+}
+
+.tdCampos{
+	padding-left:2px;
+	padding-right:5px;
+}
+
+.tdSep{
+	width:2px;
+	/*background-color:#F9F; ROSA*/
+	background-color:#A45B13;
+}
+
+/**********/
+
+

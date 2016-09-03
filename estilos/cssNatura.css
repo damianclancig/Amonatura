@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+
+#divNuevaEtapa{
+	position:absolute;
+	display:none;
+	width:155px;
+	padding:10px;
+	z-index:5000;
+	/*background-color:#C66; 
+	border-color:#900; ROSA*/
+	background-color:#FEEEBD;
+	border-color:#A45B13;
+	border-style:solid;
+	border-width:2px;
+}
+
+#divNuevoCliente{
+	position:absolute;
+	display:none;
+	width:170px;
+	padding:10px;
+	z-index:5000;
+	/*background-color:#C66; 
+	border-color:#900; ROSA*/
+	background-color:#FEEEBD;
+	border-color:#A45B13;
+	border-style:solid;
+	border-width:2px;
+}
+
+#divNuevoProducto{
+	position:absolute;
+	display:none;
+	width:165px;
+	padding:10px;
+	z-index:5000;
+	/*background-color:#C66; 
+	border-color:#900; ROSA*/
+	background-color:#FEEEBD;
+	border-color:#A45B13;
+	border-style:solid;
+	border-width:2px;
+}
+
+#divNuevoPedido{
+	position:absolute;
+	display:none;
+	width:170px;
+	padding:10px;
+	z-index:5000;
+	/*background-color:#C66; 
+	border-color:#900; ROSA*/
+	background-color:#FEEEBD;
+	border-color:#A45B13;
+	border-style:solid;
+	border-width:2px;
+}
+
+#divAgregarProducto{
+	position:absolute;
+	display:none;
+	width:325px;
+	padding:10px;
+	z-index:5000;
+	/*background-color:#C66; 
+	border-color:#900; ROSA*/
+	background-color:#FEEEBD;
+	border-color:#A45B13;
+	border-style:solid;
+	border-width:2px;
+}
+
+#divListadoProductos{
+	display:none;
+	position:absolute;
+	bottom:40px;
+	left:5px;
+	z-index:5000;
+}
+
+#divListadoProductos .borCentro{
+	max-height:200px;
+	overflow:auto;
+}
+
+.divHerramientas{
+	display:none;
+	height:23px;
+}
+
+#divFiltrosNatura, #divFiltrosAmodil, #infoGeneral, #divListadoPedido{
+	display:none;
+}
+
+#infoGeneral{
+	position:absolute;
+}
+
+#realizarPedido{
+	position:absolute;
+	z-index:5000;
+}
+
+#txtFecInicio, #txtFecFinalizacion{
+	width:134px;
+}
+
+#txtPrecioFinal{
+	width:90px;
+}
+
+#cboDescuento{
+	width:50px;
+	size:2;
+}
